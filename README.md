@@ -30,3 +30,9 @@
  
   4.1 Creating Modular / Reusable Test Scripts  
         http://www.testautomationguru.com/jmeter-modularizing-test-scripts/
+  4.2 jmeter java sampler
+	4.3 Jmeter scripts practice
+	4.4 jmeter distributed
+	4.5 jmeter automation & jenkins
+	
+	
