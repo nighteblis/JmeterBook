@@ -1,7 +1,7 @@
 # JmeterBook
 
-##1. preface 
-##2. Learn
+## 1. preface 
+## 2. Learn
 ###  2.1 what is jmeter
 ###  2.2 why jmeter
 ###  2.3 jmeter basics
@@ -26,13 +26,13 @@
 ####    3.3.1 coockies
 ####    3.3.2 header
   
- 4. advanced
+## 4. advanced
  
-  4.1 Creating Modular / Reusable Test Scripts  
+###  4.1 Creating Modular / Reusable Test Scripts  
         http://www.testautomationguru.com/jmeter-modularizing-test-scripts/
-  4.2 jmeter java sampler
-	4.3 Jmeter scripts practice
-	4.4 jmeter distributed
-	4.5 jmeter automation & jenkins
+###  4.2 jmeter java sampler
+###	4.3 Jmeter scripts practice
+###	4.4 jmeter distributed
+###	4.5 jmeter automation & jenkins
 	
 	
