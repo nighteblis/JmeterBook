@@ -19,7 +19,7 @@
 ### 2.6 Jmeter scripts  
 ### 2.7 Jmeter plugins
  
-##3. Practice
+## 3. Practice
 ###  3.1 http protocal
 ###  3.2 jmeter http sampler
 ###  3.3 http related configuration
