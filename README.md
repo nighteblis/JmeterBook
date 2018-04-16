@@ -62,4 +62,4 @@ Jmeter官方下载地址: http://jmeter.apache.org/download_jmeter.cgi
 	
 [startup]: images/startup.png "启动Jmeter"
 [sample]: images/sample.png "开始测试"
-[2.1testresult]: images/2.1testresult.png "测试结果"
+[2.1testresult]: images/2.1testResult.png "测试结果"
