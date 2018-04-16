@@ -1,6 +1,6 @@
 # JmeterBook
 ```
- [http://lihao.cf]: (http://lihao.cf)
+ [http://lihao.cf](http://lihao.cf)
 ```
 
 ## 1. 前言
@@ -29,7 +29,7 @@ Jmeter官方下载地址: http://jmeter.apache.org/download_jmeter.cgi
 ![alt text][2.1testresult]
 
 ```
-测试之前请确认被测服务器已经正常运行, [如何运行被测服务器请看这里]: (targetServer/)
+测试之前请确认被测服务器已经正常运行, [如何运行被测服务器请看这里](targetServer/)
 ```
 
 ## 3. 开始学习
