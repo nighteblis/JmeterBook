@@ -1,10 +1,13 @@
 # JmeterBook
 ```
- http://lihao.cf
+ [http://lihao.cf]: http://lihao.cf
 ```
 
 ## 1. 前言
-最近的工作中使用Jmeter非常多,为了记录平时遇到的一些问题,决定写一些东西.本文可以自行下载仅供学习使用, 作者保留版权, 仅允许在github和作者的博客和网站提供在线浏览,  qq:83798029 nighteblis@gmail.com, 未经许可禁止转载和下载者的二次分享. 任何问题或者建议随时与作者联系  nighteblis@gmail.com
+最近的工作中使用Jmeter非常多,为了记录平时遇到的一些问题,决定写一些东西.本文可以自行下载仅供学习使用, 作者保留版权, 仅允许在github和作者的博客和网站提供在线浏览,  qq:83798029 nighteblis@gmail.com, 未经许可禁止转载和下载者的二次分享. 任何问题或者建议随时与作者联系  nighteblis@gmail.com.  
+```
+本教程使用的Jmeter版本为4.0
+```
 ## 2. 简单的例子开始
 ###  2.1 Jmeter 介绍
 Jmeter是一个开源的性能测试工具,同时可以用来进行功能Debug,功能测试, 自动化测试. 支持多种多样的测试对象,例如http协议,jdbc,jms等, 因为Jmeter支持beanshell,javascript,groovy等脚本和自行开发java插件, 所以Jmeter支持通常我们软件行业碰到的一切内容. 但因为每个工具或者测试框架都有自己的侧重点, 所以我们还是要根据不同的测试对象选用最适用的工具.
@@ -24,6 +27,10 @@ Jmeter官方下载地址: http://jmeter.apache.org/download_jmeter.cgi
 
 4. 点击绿色的启动按钮. 查看结果树, 查看测试结果.
 ![alt text][2.1testresult]
+
+```
+测试之前请确认被测服务器已经正常运行, [如何运行被测服务器请看这里]: targetServer/
+```
 
 ## 3. 开始学习
 ###  3.1 Jmeter 介绍
