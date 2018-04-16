@@ -1,4 +1,4 @@
-这个是被测服务的代码
+这个目录是被测服务的代码, 按照如下步骤在本地运行被测服务.
 
 1. 下载后
 2. 运行被测服务器.
@@ -6,4 +6,4 @@
 ```
 cd ${该代码目录位置} && mvn spring-boot:run 
 ```
-3. 浏览器输入http://localhost:8080/hello , 返回Hello!, 说明服务器已经启动成功.
+3. 浏览器输入http://localhost:8080/hello , 返回{"message":"Hello world!"}, 说明服务器已经启动成功.
