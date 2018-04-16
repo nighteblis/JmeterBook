@@ -1,7 +1,7 @@
 # JmeterBook
-```
+
  [http://lihao.cf](http://lihao.cf)
-```
+
 
 ## 1. 前言
 最近的工作中使用Jmeter非常多,为了记录平时遇到的一些问题,决定写一些东西.本文可以自行下载仅供学习使用, 作者保留版权, 仅允许在github和作者的博客和网站提供在线浏览,  qq:83798029 nighteblis@gmail.com, 未经许可禁止转载和下载者的二次分享. 任何问题或者建议随时与作者联系  nighteblis@gmail.com.  
@@ -29,8 +29,9 @@ Jmeter官方下载地址: http://jmeter.apache.org/download_jmeter.cgi
 ![alt text][2.1testresult]
 
 ```
-测试之前请确认被测服务器已经正常运行, [如何运行被测服务器请看这里](targetServer/)
+测试之前请确认被测服务器已经正常运行.
 ```
+[如何运行被测服务器?](targetServer/README.md)
 
 ## 3. 开始学习
 ###  3.1 Jmeter 介绍
