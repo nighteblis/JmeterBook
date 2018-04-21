@@ -96,5 +96,5 @@ Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，�
 [sample]: images/sample.png "开始测试"
 [2.1testresult]: images/2.1testResult.png "测试结果"
 [3.1testplan]: images/3.1testplan.png "测试计划"
-[3.3.1.threadgroup]: images/3.1.1.threadgroup.png "线程组"
+[3.3.1.threadgroup]: images/3.3.1.threadgroup.png "线程组"
 [3.3.2.sampler]: images/3.1.2.sampler.png "采样器"
