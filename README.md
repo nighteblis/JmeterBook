@@ -68,11 +68,15 @@ Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，�
 ####      3.4.1 controllers
 ####      3.4.2 configuration
 ####      3.4.3 timer
+##### Synchronizing Timer
 ####      3.4.4 preProcessor
 ####      3.4.5 postProcessor
 ####      3.4.6 assert
 ### 3.5 Jmeter functions & varviables (property vs vars)
-### 3.6 Jmeter scripts  
+### 3.6 Jmeter scripts  
+#### 3.6.1 （待编辑）
+groovy vs beanshell
+reference: https://dzone.com/articles/groovy-vs-beanshell-making-the-right-decision 
 ### 3.7 Jmeter plugins
  
 ## 4.Practice
@@ -98,3 +102,4 @@ Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，�
 [3.1testplan]: images/3.1testplan.png "测试计划"
 [3.3.1.threadgroup]: images/3.3.1.threadgroup.png "线程组"
 [3.3.2.sampler]: images/3.1.2.sampler.png "采样器"
+
