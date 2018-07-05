@@ -49,7 +49,7 @@ Jmeter打开后，我们可以看到一个空的"__测试计划__"。"__测试�
 ![jmeterBookImage][3.1testplan]
 
 ###  3.2 为什么使用Jmeter
-Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，可以用来功能测试，性能测试。debug，功能测试时开发的脚本，可以直接用在性能测试上，仅需要进行些数据的准备即可。 Jmeter界面看起来仍然还有些粗糙(java 写ui本来可能就不擅长)，但这不能掩盖其功能的强大。 同时支持命令行的执行，可以进行高强度的性能压力测试，也可以无缝的和Jenkins等持续集成平台结合。总的来说，jmeter跨平台，开源免费，有众多的使用者可以分享经验，且不需要承担使用盗版软件的风险。Jmeter还可以扩展开发插件，所以Jmeter可以支持任何类型的测试，包括selenium 的web ui测试。虽然并不是适合所有测试类型的最好工具，但强大的扩展性决定了其有无限大的潜力。
+Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，可以用来功能测试，性能测试。debug，功能测试时开发的脚本，可以直接用在性能测试上，仅需要进行些数据的准备即可。 Jmeter界面看起来仍然还有些粗糙(java 写ui本来可能就不擅长)，但这不能掩盖其功能的强大。 同时支持命令行的执行，可以进行高强度的性能压力测试，也可以无缝的和Jenkins等持续集成平台结合。总的来说，jmeter跨平台，开源免费，有众多的使用者可以分享经验，且不需要承担使用盗版软件的风险。Jmeter还可以扩展开发插件，所以Jmeter可以支持任何类型的测试，包括selenium 的web ui测试。虽然并不是适合所有测试类型的最好工具，但强大的扩展性决定了其有无限大的潜力。  （这里顺便提一下 postman, postman的介绍是用于api快速开发的工具， 所以当然可以用来http restfull 的api debug和测试，同时他支持cmdline的执行， 所以也可以用来实现自动化。 but！！，重要的事情说一遍，  简单的阅读了下文档postman不支持其他的协议. 例如我要进行jdbc的调用，那该怎么办呢？ 兴许可以通过script的方式（postman官方文档提到这基于nodejs）。但是肯定需要二次开发了。 包括其他的一些高级使用方法，都必须通过script的方式进行pre 和 post 执行。  所以给postman下的定义是， 针对于开发使用的http api 开发工具， 还可以自动生成调用代码，可以搭建部署mockserver 可以实现一些不需要其他协议参与的api自动化。  如果你只是关注api不关心底层数据库，redis，及一些外延的东西，那么使用postman同样是一个不错的选择 ）
 
 ###  3.3 Jmeter 基础功能
 ####      3.3.1 线程组
@@ -65,7 +65,7 @@ Jmeter 是一个开源免费的软件，功能强大，具有很强扩展性，�
 安装之后，我们可以通过插件管理器安装我们希望使用的三方threadgroup插件。 https://jmeter-plugins.org/wiki/Start/
 ```
 ####      3.3.2 采样器
-采样器，是实际发起测试的核心单元。 例如我们要发起一个http请求， 一个jdbc请求。 这些全部被Jmeter放在采样器中。 如果我们要测试一个http接口， 则我们无意要有一个http采样器。 下图是一个jdbc请求采样器。
+采样器，是实际发起测试的核心单元。 例如我们要发起一个http请求， 一个jdbc请求。 这些全部包含在Jmeter放在采样器中。 如果我们要测试一个http接口， 则我们无意要有一个http采样器。 下图是一个jdbc请求采样器。
 ![jmeterBookImage][3.3.2.sampler]
 我们可以添加不同的采样器， 可以很明显的因为采样器的协议和类型不同，每一种请求（采样器） 的设置定义都完全不同。 例如http请求，除了需要定义ip端口号外，需要定义http方法，路径，以及http请求数据。而jdbc请求则需要定义要执行的sql脚本。
 
@@ -98,23 +98,31 @@ select a from table;
 ```
 
 #####  3.3.2.3 beanshell&jsr223 sampler
-我们将在嵌入式脚本专门针对beanshell和jsr223 进行讲解.  beanshell, jsr223 是用来进行自定义编写一些脚本. 可以在jmeter执行时,现场运行.  当所有的sampler不能满足我们的需求时,通常我们可以考虑使用此类型的sampler.  这里我们更建议使用jsr223 sampler 而不是beanshell. (虽然我们还可以选择java sampler, 但个人建议如果使用beanshell和jsr223 能实现的情况, 先不要使用java sampler, 因为比较重)
+我们将在嵌入式脚本专门针对beanshell和jsr223 进行讲解.  beanshell, jsr223 是用来进行自定义编写一些脚本. 可以在jmeter执行时,现场运行.  当所有的sampler不能满足我们的需求时,通常我们可以考虑使用此类型的sampler.  这里我们更建议使用jsr223 sampler 而不是beanshell. (我们也还可以选择java sampler, 个人建议如果使用beanshell和jsr223 能实现的情况, 先不要使用java sampler, 因为比较重， 后续将会针对java sampler进行专门例子讲解)
 ```
 beanshell vs jsr223 vs java sampler的区别:
 https://www.blazemeter.com/blog/beanshell-vs-jsr223-vs-java-jmeter-scripting-its-performance
 
-根据性能对比, 建议选择jsr223/groovy 或者 java sampler. 
+根据性能对比, 建议选择jsr223/groovy 和 java sampler  不要使用 beanshell . 
 
 ```
 
+#####  3.3.2.4 Debug sampler
+
+Debug sampler 看名字便知是用来debug使用的。他进行的请求时 JMeterVariables， 即列出所有当前执行环境中的所有定义的Jmeter 变量。 Jmeter变量是我们串联我们的测试脚本最重要的内容，用来完成传递我们的测试业务逻辑内容。 Jmeter变量主要是有系统默认的变量， 用户自定义变量vars 和 properties。在3.4.2.1 会对用户自定义配置变量介绍， 在3.5章中，会专门针对vars和properties 进行介绍。  需要你注意的是 这些不同的变量设置的区别。  这里简单的区分下  用户自定义变量是全局的  vars的是在同一个线程组内共享， properties也是全局，可以通过执行时外部传入，而不需要在jmeter脚本中事先硬编码。 
+
 ####      3.3.3 监听器 
-监听器主要用来测试结果展示和问题Debug。 
+监听器主要用来测试结果展示和问题Debug。 例如我们记录所有采样器执行的请求和结果，便于我们debug使用。 经常用的，功能测试使用"查看结果树" （性能测试中，建议此监听器关闭或者设置为仅日志错误）。  性能测试中使用 samary report （汇总结果报告） 当然还有各种各样的结果报表和图形展示，利于分析性能测试结果 如TPS ， cpu/内存监控等。
 
 
 ###  3.4 jmeter elements
 
 ####      3.4.2 configuration
-#####     3.4.2.1 用户自定义配置
+#####     3.4.2.1 用户自定义的变量
+
+用户自定义的变量。 用法很简单定义变量名称， 定义变量的值。（变量的值可以用变量或者函数来表达） 。
+如下图
+
 
 #####     3.4.2.2 http默认设置
 
