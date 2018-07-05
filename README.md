@@ -122,7 +122,7 @@ Debug sampler 看名字便知是用来debug使用的。他进行的请求时 JMe
 
 用户自定义的变量。 用法很简单定义变量名称， 定义变量的值。（变量的值可以用变量或者函数来表达） 。
 如下图
-
+![jmeterBookImage][3.4.2.1.userdefinedvars]
 
 #####     3.4.2.2 http默认设置
 
@@ -185,4 +185,4 @@ reference: https://dzone.com/articles/groovy-vs-beanshell-making-the-right-decis
 [3.1testplan]: images/3.1testplan.png "测试计划"
 [3.3.1.threadgroup]: images/3.3.1.threadgroup.png "线程组"
 [3.3.2.sampler]: images/3.1.2.sampler.png "采样器"
-
+[3.4.2.1.userdefinedvars]: images/3.4.2.1.userdefinedvars.png "用户自定义的变量"
