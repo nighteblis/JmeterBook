@@ -1,6 +1,7 @@
 # JmeterBook
 
- [http://lihao.cf](http://lihao.cf)
+ [http://lihao.cf](个人博客： http://lihao.cf)
+ [http://lihao.cf](Jmeter学习资料： http://lihao.cf)
 
 
 ## 1. 前言
