@@ -126,9 +126,11 @@ Debug sampler 看名字便知是用来debug使用的。他进行的请求时 JMe
 ![jmeterBookImage][3.4.2.1.userdefinedvars]
 
 #####     3.4.2.2 http默认设置
-
+http默认设置以后，脚本里所有（包括所有线程组里面的）http请求均会默认使用这里的配置，除非自己进行了覆盖。 http默认设置是为了让我们的后续脚本减少填写请求服务地址和端口号， 利于提高开发效率。
 #####     3.4.2.3 jdbc链接配置
-
+jdbc链接配置，即初始化一个数据库连接池（包括设置数据库访问的地址，用户名密码，链接池的大小等等）。 后续使用jdbc 的请求时， 输入我们要是用的jdbc连接池即可。 
+如下图示例：
+![jmeterBookImage][3.4.2.3.jdbcconfiguration]
 ####      3.4.3 timer
 ##### Synchronizing Timer
 ####      3.4.4 preProcessor 
@@ -187,3 +189,4 @@ reference: https://dzone.com/articles/groovy-vs-beanshell-making-the-right-decis
 [3.3.1.threadgroup]: images/3.3.1.threadgroup.png "线程组"
 [3.3.2.sampler]: images/3.1.2.sampler.png "采样器"
 [3.4.2.1.userdefinedvars]: images/3.4.2.1.userdefinedvars.png "用户自定义的变量"
+[3.4.2.3.jdbcconfiguration]: images/3.4.2.3.jdbcconfiguration.png "JDBC链接配置"
