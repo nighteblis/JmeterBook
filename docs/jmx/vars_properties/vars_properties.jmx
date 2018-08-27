@@ -55,6 +55,17 @@
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
         <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="获取变量" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">log.info(&quot;${var}&quot;)
+log.info(&quot;${var2}&quot;)
+log.info(vars.get(&quot;var&quot;))
+log.info(vars.get(&quot;var2&quot;))</stringProp>
+          <stringProp name="scriptLanguage">ecmascript</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
