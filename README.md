@@ -208,7 +208,18 @@ reference: https://dzone.com/articles/groovy-vs-beanshell-making-the-right-decis
 ###	5.4 jmeter distributed
 ###	5.5 jmeter automation & jenkins
 	
-	
+
+```flow
+st=>start: 开始
+op=>operation: My Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
+&
+```
+
 [startup]: ./docs/images/startup.png "启动Jmeter"
 [sample]: docs/images/sample.png "开始测试"
 [2.1testresult]: docs/images/2.1testResult.png "测试结果"
