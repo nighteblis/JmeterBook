@@ -14,11 +14,10 @@
 ## 2. 简单的例子开始
 ###  2.1 Jmeter 介绍
 Jmeter是一个开源的性能测试工具，同时可以用来进行功能Debug，功能测试，自动化测试。支持多种多样的测试对象，例如http协议，jdbc，jms等，因为Jmeter支持beanshell，javascript，groovy等脚本和自行开发java插件，所以Jmeter支持通常我们软件行业碰到的一切内容。但因为每个工具或者测试框架都有自己的侧重点，所以我们还是要根据不同的测试对象选用最适用的工具。
-1. 下载Jmeter 
 
+1. 下载Jmeter 
 > Jmeter官方下载地址: http://jmeter.apache.org/download__jmeter.cgi
 > 下载之前，请线安装Java 执行环境，即我们所说的jre
-
 2. 打开Jmeter工具
 ```
 下载Jmeter解压后，进入bin目录。windows环境可以双击jmeter.bat， linux中可以在命令行中执行者jmeter.sh 或者 jmeter
