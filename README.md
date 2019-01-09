@@ -131,6 +131,18 @@ http默认设置以后，脚本里所有（包括所有线程组里面的）http
 jdbc链接配置，即初始化一个数据库连接池（包括设置数据库访问的地址，用户名密码，链接池的大小等等）。 后续使用jdbc 的请求时， 输入我们要是用的jdbc连接池即可。 
 如下图示例：
 ![jmeterBookImage][3.4.2.3.jdbcconfiguration]
+
+##### 3.4.2.4  Cookie Manager (cookie管理器)
+
+　　如果在一个测试计划内有多个Cookie Manager ，Jmeter目前无法指定哪个被使用。所以，一个测试计划内最好只有一个cookie manager。并且，一个manager里的 cookie 并不能被其它manager所引用。所以在使用多个Cookie Managers 时要谨慎。  
+  
+  1、自动管理cookie：象浏览器一样的存储和发送Cookie，如果发送一个http请求他的响应中包含Cookie，那么Cookie Manager就会自动地保存这些Cookie并在所有后来发送到该站点的请求中使用这些Cookie的值。每个线程都自己存储cookie的区域。在cookie manager中看不到自动保存的cookie，我们可以在View Results Tree的Request界面看到被发送的Cookie Data。
+    接受到的Cookie的值能被存储到JMeter 线程变量中（2.3.2版本后的JMeter不自动做这个事情）。要把Cookies保存到线程变量中，要定义属性"CookieManager.save.cookies=true"。线程变量名为COOKIE_ + Cookie名。属性CookieManager.name.prefix= 可以用来修改默认的COOKIE_的值。
+    
+2、手动管理Cookie：手动添加Cookie到Cookie Manager，这些Cookie的值被会所有线程共享。 
+
+比较简单的做法是使用firefox的firebug导出cookies。 然后在cookie manager里load 该文件，则会全部导入。 
+
 ####      3.4.3 timer
 ##### 3.4.3.1 Synchronizing Timer(集结点)
 中文我们可以称为集结点或者集合点（loadrunner的专业叫法）：简单来理解一下，虽然我们的“性能测试”理解为“多用户并发测试”，但真正意义上并发是不存在的，为了更真实的实现瞬时并发，我们可以在需要压力的地方设置集合点。（线程池在创建准备线程时是需要一定的处理时间，因此处理时间的不等长，会使得线程准备好发起测试的时间不能保证为同一时间）
