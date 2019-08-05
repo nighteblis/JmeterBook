@@ -109,13 +109,12 @@ select a from table;
 ```
 
 #####  3.3.2.3 beanshell&jsr223 sampler
-我们将在嵌入式脚本专门针对beanshell和jsr223 进行讲解.  beanshell, jsr223 是用来进行自定义编写一些脚本. 可以在jmeter执行时,现场运行我们指定的脚本.  当所有其他的sampler 采样器不能满足我们的需求时,通常我们可以考虑使用此类型的sampler.  这里我们更建议使用jsr223 sampler 而不是beanshell. (我们也还可以选择java sampler, 个人建议如果使用beanshell和jsr223 能实现的情况, 先不要使用java sampler, 因为比较重， 后续将会针对java sampler进行专门例子讲解)
+我们将在嵌入式脚本专门针对beanshell和jsr223 进行讲解.  beanshell, jsr223 是用来进行自定义编写一些脚本. 可以在jmeter执行时,现场运行我们指定的脚本.  当所有其他的sampler 采样器不能满足我们的需求时,通常我们可以考虑使用此类型的sampler.  这里我们更建议使用jsr223 sampler 而不是beanshell. (我们也还可以选择java sampler, 个人建议如果使用beanshell和jsr223 能实现的情况, 先不要使用java sampler, 因为比较重需要二次开发后被jmeter加载， 后续将会针对java sampler进行专门例子讲解) 。所以个人的建议为功能测试时： jsr223 sampler (使用groovy) >  jsr223(使用beanshell) > jsr223 sampler (使用javascript) > java sampler > beanshell sampler。   性能测试时：   jsr223 sampler (使用groovy) > java sampler > beanshell sampler ,   jsr223(使用beanshell) , jsr223 sampler (使用javascript) 。  
 ```
 beanshell vs jsr223 vs java sampler的区别:
 https://www.blazemeter.com/blog/beanshell-vs-jsr223-vs-java-jmeter-scripting-its-performance
 
 根据性能对比, 建议选择jsr223/groovy 和 java sampler  不要使用 beanshell . 
-
 ```
 
 #####  3.3.2.4 Debug sampler
@@ -126,7 +125,7 @@ Debug sampler 看名字便知是用来debug使用的。他进行的请求时 JMe
 监听器主要用来测试结果展示和问题Debug。 例如我们记录所有采样器执行的请求和结果，便于我们debug使用。 经常用的，功能测试使用"查看结果树" （性能测试中，建议此监听器关闭或者设置为仅日志错误）。  性能测试中使用 samary report （汇总结果报告） 当然还有各种各样的结果报表和图形展示，利于分析性能测试结果 如TPS ， cpu/内存监控等。
 
 
-###  3.4 jmeter elements
+###  3.4 其他jmeter elements
 
 ####      3.4.2 configuration
 #####     3.4.2.1 用户自定义的变量
