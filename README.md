@@ -109,6 +109,14 @@ select a from table;
 ```
 
 #####  3.3.2.3 beanshell&jsr223 sampler
+```
+问题: 什么是jsr223, beanshell , java sampler.
+beanshell: 如名称所指， java 语言中可以运行脚本的轻量级框架。我们可以在java代码中执行beanshell的脚本。  
+jsr223： jsr223 作为java代码中可以编写和运行脚本语言的标准，目前jmeter  jsr223 默认的脚本语言是groovy。推荐使用groovy脚本。
+java sampler： 用java代码开发的采样器，并在jmeter中北调用。
+beanshell [pre/post processors]/listeners/sampler :   可以用beanshell脚本的前置/后置处理器/采样器/监听器。
+jsr223  [pre/post processors]/listeners/sampler : 可以用jsr223 脚本标准的前置/后置处理器/采样器/监听器。
+```
 我们将在嵌入式脚本专门针对beanshell和jsr223 进行讲解.  beanshell, jsr223 是用来进行自定义编写一些脚本. 可以在jmeter执行时,现场运行我们指定的脚本.  当所有其他的sampler 采样器不能满足我们的需求时,通常我们可以考虑使用此类型的sampler.  这里我们更建议使用jsr223 sampler 而不是beanshell. (我们也还可以选择java sampler, 个人建议如果使用beanshell和jsr223 能实现的情况, 先不要使用java sampler, 因为比较重需要二次开发后被jmeter加载， 后续将会针对java sampler进行专门例子讲解) 。所以个人的建议为功能测试时： jsr223 sampler (使用groovy) >  jsr223(使用beanshell) > jsr223 sampler (使用javascript) > java sampler > beanshell sampler。   性能测试时：   jsr223 sampler (使用groovy) > java sampler > beanshell sampler ,   jsr223(使用beanshell) , jsr223 sampler (使用javascript) 。  
 ```
 beanshell vs jsr223 vs java sampler的区别:
@@ -116,6 +124,8 @@ https://www.blazemeter.com/blog/beanshell-vs-jsr223-vs-java-jmeter-scripting-its
 
 根据性能对比, 建议选择jsr223/groovy 和 java sampler  不要使用 beanshell . 
 ```
+针对于前置和后置处理器里的jsr223 和 beanshell处理器， 我们也是推荐优先使用jsr223/groovy 的方式。 
+
 
 #####  3.3.2.4 Debug sampler
 
@@ -162,78 +172,4 @@ jdbc链接配置，即初始化一个数据库连接池（包括设置数据库�
 1.  集结的group用户数量一定要比线程组的数量小。 否则因为无法集结到设定的用户，导致测试无法进行。
 2.  集结的用户数和线程组并发用户数的关系。
 ```
-例如线程组设定的用户是50，  集结点设置的用户组数量是25， 那么当集结了25个用户后，就会立即开始测试。 当集结了下一组25个用户后，会立即开始这25个用户的测试。
-```
-下图是当集结点没有启用的时候， 发起的http请求的发起时间，是相差比较大的。
-
-下图是集结点启用的时候， 可以发现http请求的发起时间都在100-200毫秒内发起。这就是我们集结点的意义所在。
-
-
-####      3.4.4 preProcessor 
-####      3.4.5 postProcessor
-####      3.4.6 assert
-### 3.5 Jmeter functions & varviables 
-这里有必要单独一节，介绍一下Properties和vars的区别 
-(Properties vs vars)
-1. property 是全局变量， var作用空间则是线程内。 线程间的资源变量共享，必须使用property来实现。 
-2. property可以通过jmeter 命令行执行时通过参数传入， 或者通过在jmeter.properties 中定义。
-
-vars - ( JMeterVariables) - gives read/write access to variables:
-
-vars.get(key);
-vars.put(key,val);
-
-vars.putObject("OBJ1",new Object());
-
-vars.getObject("OBJ2");
-
-props - (JMeterProperties - class java.util.Properties):
-
-props.get("START.HMS");
-props.put("PROP1","1234");
-
-reference: https://www.vskills.in/certification/tutorial/software-testing/jmeter-properties-and-variables/
-https://stackoverflow.com/questions/38845168/what-is-different-between-props-and-vars-object-in-jmeter
-
-### 3.6 Jmeter scripts  
-#### 3.6.1 （待编辑）
-groovy vs beanshell
-reference: https://dzone.com/articles/groovy-vs-beanshell-making-the-right-decision 
-### 3.7 Jmeter plugins
- 
-## 4.Practice
-###  4.1 http protocal
-###  4.2 jmeter http sampler
-###  4.3 http related configuration
-####    4.3.1 coockies
-####    4.3.2 header
-  
-## 5.advanced
- 
-###  5.1 Creating Modular / Reusable Test Scripts  
-        http://www.testautomationguru.com/jmeter-modularizing-test-scripts/
-###  5.2 jmeter java sampler
-###	5.3 Jmeter scripts practice
-###	5.4 jmeter distributed
-###	5.5 jmeter automation & jenkins
-	
-
-```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-&
-```
-
-[startup]: ./docs/images/startup.png "启动Jmeter"
-[sample]: docs/images/sample.png "开始测试"
-[2.1testresult]: docs/images/2.1testResult.png "测试结果"
-[3.1testplan]: docs/images/3.1testplan.png "测试计划"
-[3.3.1.threadgroup]: docs/images/3.3.1.threadgroup.png "线程组"
-[3.3.2.sampler]: docs/images/3.1.2.sampler.png "采样器"
-[3.4.2.1.userdefinedvars]: docs/images/3.4.2.1.userdefinedvars.png "用户自定义的变量"
-[3.4.2.3.jdbcconfiguration]: docs/images/3.4.2.3.jdbcconfiguration.png "JDBC链接配置"
+例如线程组设定的用户是50，  集结点设置的用户组数量是25， 那么当集结了25个用户后，就会立即
