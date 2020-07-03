@@ -1,6 +1,6 @@
 # JmeterBook
 
- [个人博客：http://lihao.cf](http://lihao.cf) 
+ [个人博客：http://blog.hissummer.com](http://blog.hissummer.com) 
  
  [Jmeter学习资料：http://www.hissummer.com](http://www.hissummer.com) 
  
